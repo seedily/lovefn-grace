@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.lovefn.grace</groupId>
+        <artifactId>grace</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <groupId>com.lovefn.grace</groupId>
+    <artifactId>grace-starters</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>grace-starters</name>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>grace-starter-tiny</module>
+        <module>grace-starter-elasticsearch</module>
+        <module>grace-starter-redis</module>
+        <module>grace-starter-redis-session</module>
+        <module>grace-starter-task</module>
+    </modules>
+
+
+    <properties>
+        <!--compile setting-->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <java.version>1.8</java.version>
+        <maven.mvn.showWarnings>true</maven.mvn.showWarnings>
+        <maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
+        <!--dependency version-->
+        <spring-boot.version>2.1.7.RELEASE</spring-boot.version>
+        <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
+        <lombok.version>1.16.18</lombok.version>
+        <gson.vserion>2.8.0</gson.vserion>
+        <!--redis-->
+        <jedis.version>2.9.0</jedis.version>
+        <spring-data-redis.version>2.0.9.RELEASE</spring-data-redis.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-parent</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>${gson.vserion}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot.version}</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>repackage</goal>
+                                <goal>build-info</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <mainClass>${start-class}</mainClass>
+                    </configuration>
+                </plugin>
+                <!--            <plugin>-->
+                <!--                <groupId>com.spotify</groupId>-->
+                <!--                <artifactId>dockerfile-maven-plugin</artifactId>-->
+                <!--                <executions>-->
+                <!--                    <execution>-->
+                <!--                        <id>default</id>-->
+                <!--                        <goals>-->
+                <!--                            <goal>build</goal>-->
+                <!--                            <goal>push</goal>-->
+                <!--                        </goals>-->
+                <!--                    </execution>-->
+                <!--                </executions>-->
+                <!--                <configuration>-->
+                <!--                    <repository>${docker.registry}/${docker.repo.prefix}/${project.name}</repository>-->
+                <!--                    <defaultTag>${project.version}</defaultTag>-->
+                <!--                    <dockerfileLocation>roshan/build-tools/jar-v1.Dockerfile</dockerfileLocation>-->
+                <!--                    &lt;!&ndash;<verbose>true</verbose>&ndash;&gt;-->
+                <!--                    <skip>${docker.skip}</skip>-->
+                <!--                    <buildArgs>-->
+                <!--                        <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>-->
+                <!--                        <APP_NAME>${project.name}</APP_NAME>-->
+                <!--                        <APP_ARTIFACTID>${project.artifactId}</APP_ARTIFACTID>-->
+                <!--                    </buildArgs>-->
+                <!--                </configuration>-->
+                <!--                <dependencies>-->
+                <!--                    <dependency>-->
+                <!--                        <artifactId>build-tools</artifactId>-->
+                <!--                        <groupId>com.mmtech.roshan</groupId>-->
+                <!--                        <version>${roshan.version}</version>-->
+                <!--                    </dependency>-->
+                <!--                </dependencies>-->
+                <!--            </plugin>-->
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>
