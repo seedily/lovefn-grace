@@ -10,8 +10,22 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>build-tools</module>
         <module>grace-starters</module>
     </modules>
+
+    <properties>
+        <!-- compile setting -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <java.version>1.8</java.version>
+        <maven.mvn.showWarnings>true</maven.mvn.showWarnings>
+        <maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
+        <!-- main system -->
+        <grace.version>0.0.1-SNAPSHOT</grace.version>
+    </properties>
 
     <distributionManagement>
         <repository>
