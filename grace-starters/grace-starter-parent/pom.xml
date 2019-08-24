@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.lovefn.grace</groupId>
+        <artifactId>grace-starters</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <groupId>com.lovefn.grace</groupId>
+    <artifactId>grace-starter-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>grace-starter-parent</name>
+    <packaging>pom</packaging>
+
+    <properties>
+        <checkstyleVersion>6.18</checkstyleVersion>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.lovefn.grace</groupId>
+            <artifactId>grace-starter-tiny</artifactId>
+        </dependency>
+
+    </dependencies>
+
+
+    <profiles>
+        <profile>
+            <id>checkstyle</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-checkstyle-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>validate</id>
+                                <phase>validate</phase>
+                                <configuration>
+                                    <configLocation>build-tools/checkstyle.xml</configLocation>
+                                    <encoding>UTF-8</encoding>
+                                    <consoleOutput>true</consoleOutput>
+                                    <failsOnError>true</failsOnError>
+                                    <excludes>
+                                        com/**/common/dal/**
+                                        <!-- ,com/**/common/service/response/**-->
+                                    </excludes>
+
+                                </configuration>
+                                <goals>
+                                    <goal>check</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <dependencies>
+                            <dependency>
+                                <groupId>com.lovefn.grace</groupId>
+                                <artifactId>build-tools</artifactId>
+                                <version>${grace.version}</version>
+                            </dependency>
+                        </dependencies>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+</project>

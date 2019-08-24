@@ -3,10 +3,10 @@ package com.lovefn.grace.common.service.response;
 /**
  * 结果码
  */
-@SuppressWarnings({"JavadocVariable"})
+@SuppressWarnings({"JavadocVariable"}) // for checkstyle#JavadocVariable
 public class ResultCode {
 
-    public static final ResultCode SUCCESS = new ResultCode("000200", "成功");
+    public static final ResultCode SUCCESS = new ResultCode("000000", "成功");
     public static final ResultCode MISS_PARAM = new ResultCode("000400", "请求参数非法");
     public static final ResultCode NOT_FOUND = new ResultCode("000404", "查询为空");
     public static final ResultCode ILLEGAL_AUTH = new ResultCode("000403", "权限非法");
