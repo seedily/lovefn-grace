@@ -1,8 +1,11 @@
-HELP.md
+# maven ignore
 target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**
-!**/src/test/**
+*.jar
+!.mvn/wrapper/*
+*.war
+*.zip
+*.tar
+*.tar.gz
 
 ### STS ###
 .apt_generated
@@ -19,6 +22,11 @@ target/
 *.iml
 *.ipr
 
+### eclipse ignore ###
+.settings/
+.project
+.classpath
+
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
@@ -29,3 +37,14 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### temp ignore ###
+*.log
+*.cache
+*.diff
+*.patch
+*.tmp
+
+### system ignore ###
+.DS_Store
+Thumbs.db
