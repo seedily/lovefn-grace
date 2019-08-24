@@ -14,6 +14,10 @@
     <name>grace-starter-tiny</name>
     <packaging>pom</packaging>
 
+    <properties>
+        <checkstyleVersion>6.18</checkstyleVersion>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -21,9 +25,23 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.puppycrawl.tools</groupId>
+            <artifactId>checkstyle</artifactId>
+            <version>${checkstyleVersion}</version>
+        </dependency>
+
     </dependencies>
 
 
@@ -49,7 +67,9 @@
                                     <failsOnError>true</failsOnError>
                                     <excludes>
                                         com/**/common/dal/**
+                                        <!-- ,com/**/common/service/response/**-->
                                     </excludes>
+
                                 </configuration>
                                 <goals>
                                     <goal>check</goal>
