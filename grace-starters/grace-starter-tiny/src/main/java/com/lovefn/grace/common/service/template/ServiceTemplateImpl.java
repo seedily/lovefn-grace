@@ -2,12 +2,10 @@ package com.lovefn.grace.common.service.template;
 
 import com.lovefn.grace.common.service.callback.AbstractServiceCallback;
 import com.lovefn.grace.common.service.exception.ServiceFailException;
-import com.lovefn.grace.common.service.response.Response;
-import com.lovefn.grace.common.service.response.ResponseBuilder;
-import com.lovefn.grace.common.service.response.ResultData;
+import com.lovefn.grace.common.service.entity.Response;
+import com.lovefn.grace.common.service.entity.ResponseBuilder;
+import com.lovefn.grace.common.service.entity.BaseResult;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.support.TransactionTemplate;
 
 /**
  * Created by Moffee on 2018/7/11.
@@ -19,8 +17,8 @@ public class ServiceTemplateImpl implements ServiceTemplate {
     public Response execute(final AbstractServiceCallback action) {
         try {
             action.executeCheck();
-            ResultData resultData = action.executeService();
-            return ResponseBuilder.createSuccessRes(resultData);
+            BaseResult result = action.executeService();
+            return ResponseBuilder.createSuccessRes(result);
         } catch (ServiceFailException e) {
             log.warn("业务失败：{}", e.toString(), e);
             return action.initFailResult(e);

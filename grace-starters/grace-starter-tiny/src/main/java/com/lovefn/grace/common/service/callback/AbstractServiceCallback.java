@@ -1,9 +1,9 @@
 package com.lovefn.grace.common.service.callback;
 
+import com.lovefn.grace.common.service.entity.BaseResult;
 import com.lovefn.grace.common.service.exception.ServiceFailException;
-import com.lovefn.grace.common.service.response.Response;
-import com.lovefn.grace.common.service.response.ResponseBuilder;
-import com.lovefn.grace.common.service.response.ResultData;
+import com.lovefn.grace.common.service.entity.Response;
+import com.lovefn.grace.common.service.entity.ResponseBuilder;
 
 /**
  * 代理模式：实现ServiceCallback（目标对象）
@@ -27,8 +27,8 @@ public abstract class AbstractServiceCallback implements ServiceCallback {
      * 针对执行失败的情况
      */
     @Override
-    public Response initSuccessResult(ResultData resultData) {
-        return ResponseBuilder.createSuccessRes(resultData);
+    public Response initSuccessResult(BaseResult baseResult) {
+        return ResponseBuilder.createSuccessRes(baseResult);
     }
 
     /**

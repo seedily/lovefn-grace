@@ -5,7 +5,7 @@
 
     <groupId>com.lovefn.grace</groupId>
     <artifactId>grace</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
     <name>grace</name>
     <packaging>pom</packaging>
 
@@ -23,6 +23,8 @@
         <java.version>1.8</java.version>
         <maven.mvn.showWarnings>true</maven.mvn.showWarnings>
         <maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
+        <!-- local system (equals to this project version )-->
+        <grace.version>0.0.2-SNAPSHOT</grace.version>
     </properties>
 
     <distributionManagement>

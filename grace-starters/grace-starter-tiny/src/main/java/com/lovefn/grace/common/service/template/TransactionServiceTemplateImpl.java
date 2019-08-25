@@ -1,14 +1,12 @@
 package com.lovefn.grace.common.service.template;
 
-import com.lovefn.grace.common.service.callback.AbstractServiceCallback;
 import com.lovefn.grace.common.service.callback.ServiceCallback;
 import com.lovefn.grace.common.service.exception.ServiceFailException;
-import com.lovefn.grace.common.service.response.Response;
-import com.lovefn.grace.common.service.response.ResponseBuilder;
-import com.lovefn.grace.common.service.response.ResultData;
+import com.lovefn.grace.common.service.entity.Response;
+import com.lovefn.grace.common.service.entity.ResponseBuilder;
+import com.lovefn.grace.common.service.entity.BaseResult;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.TransactionCallback;
 import org.springframework.transaction.support.TransactionTemplate;
@@ -33,8 +31,8 @@ public class TransactionServiceTemplateImpl implements TransactionServiceTemplat
                 try {
                     action.executeCheck();
                     action.lock();  //加锁
-                    ResultData resultData = action.executeService();
-                    return ResponseBuilder.createSuccessRes(resultData);
+                    BaseResult result = action.executeService();
+                    return ResponseBuilder.createSuccessRes(result);
                 } catch (ServiceFailException e) {
                     log.warn("业务失败：{}", e.toString(), e);
                     status.setRollbackOnly();  //事务回滚

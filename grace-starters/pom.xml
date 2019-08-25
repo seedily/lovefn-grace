@@ -5,12 +5,12 @@
     <parent>
         <groupId>com.lovefn.grace</groupId>
         <artifactId>grace</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.2-SNAPSHOT</version>
     </parent>
 
     <groupId>com.lovefn.grace</groupId>
     <artifactId>grace-starters</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
     <name>grace-starters</name>
     <packaging>pom</packaging>
 
@@ -26,12 +26,10 @@
 
 
     <properties>
-        <!-- local system -->
-        <grace.version>0.0.1-SNAPSHOT</grace.version>
-        <landing.version>0.0.1-SNAPSHOT</landing.version>
         <!-- spring -->
         <spring-boot.version>2.1.7.RELEASE</spring-boot.version>
         <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
+        <joda-time.version>2.9.9</joda-time.version>
         <lombok.version>1.16.18</lombok.version>
         <gson.vserion>2.8.0</gson.vserion>
         <jedis.version>2.9.0</jedis.version>
@@ -98,12 +96,6 @@
                 <version>${grace.version}</version>
             </dependency>
 
-            <!-- landing -->
-            <dependency>
-                <groupId>com.lovefn.landing</groupId>
-                <artifactId>common-api</artifactId>
-                <version>${landing.version}</version>
-            </dependency>
 
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -124,6 +116,11 @@
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>${joda-time.version}</version>
             </dependency>
 
             <dependency>

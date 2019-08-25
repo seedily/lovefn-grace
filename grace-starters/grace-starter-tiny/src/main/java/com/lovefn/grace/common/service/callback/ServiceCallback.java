@@ -1,15 +1,15 @@
 package com.lovefn.grace.common.service.callback;
 
+import com.lovefn.grace.common.service.entity.BaseResult;
 import com.lovefn.grace.common.service.exception.ServiceFailException;
-import com.lovefn.grace.common.service.response.Response;
-import com.lovefn.grace.common.service.response.ResultData;
+import com.lovefn.grace.common.service.entity.Response;
 
 /**
  * 代理模式：实现ServiceCallback（目标对象）
  *
  * @param <T>
  */
-public interface ServiceCallback<T extends ResultData> {
+public interface ServiceCallback<T extends BaseResult> {
 
     /**
      * 参数校验
@@ -26,12 +26,12 @@ public interface ServiceCallback<T extends ResultData> {
      *
      * @throws ServiceFailException
      */
-    ResultData executeService() throws ServiceFailException;
+     T executeService() throws ServiceFailException;
 
     /**
      * 封装成功结果
      */
-    Response<T> initSuccessResult(T resultData);
+    Response<T> initSuccessResult(T result);
 
     /**
      * 解锁

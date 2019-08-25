@@ -5,12 +5,12 @@
     <parent>
         <groupId>com.lovefn.grace</groupId>
         <artifactId>grace-starters</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.2-SNAPSHOT</version>
     </parent>
 
     <groupId>com.lovefn.grace</groupId>
     <artifactId>grace-starter-parent</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
     <name>grace-starter-parent</name>
     <packaging>pom</packaging>
 
@@ -36,7 +36,10 @@
             <groupId>com.lovefn.grace</groupId>
             <artifactId>grace-starter-tiny</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+        </dependency>
     </dependencies>
 
 
@@ -62,7 +65,7 @@
                                     <failsOnError>true</failsOnError>
                                     <excludes>
                                         com/**/common/dal/**
-                                        <!-- ,com/**/common/service/response/**-->
+                                        <!-- ,com/**/common/service/entity/**-->
                                     </excludes>
 
                                 </configuration>

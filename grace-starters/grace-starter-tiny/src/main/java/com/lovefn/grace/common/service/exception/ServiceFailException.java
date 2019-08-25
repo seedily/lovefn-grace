@@ -1,6 +1,6 @@
 package com.lovefn.grace.common.service.exception;
 
-import com.lovefn.grace.common.service.response.ResultCode;
+import com.lovefn.grace.common.service.entity.ResultCode;
 
 /**
  * 业务异常

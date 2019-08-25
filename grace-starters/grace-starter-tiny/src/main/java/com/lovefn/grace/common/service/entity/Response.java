@@ -1,4 +1,4 @@
-package com.lovefn.grace.common.service.response;
+package com.lovefn.grace.common.service.entity;
 
 import lombok.Data;
 
@@ -11,7 +11,7 @@ import java.util.Map;
  * @param <T>
  */
 @Data
-public class Response<T extends ResultData> implements Serializable {
+public class Response<T extends BaseResult> implements Serializable {
 
     private static final long serialVersionUID = 123456789L;
 

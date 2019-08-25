@@ -1,4 +1,4 @@
-package com.lovefn.grace.common.service.response;
+package com.lovefn.grace.common.service.entity;
 
 /**
  * 结果码

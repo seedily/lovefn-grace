@@ -5,12 +5,12 @@
     <parent>
         <groupId>com.lovefn.grace</groupId>
         <artifactId>grace-starters</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.2-SNAPSHOT</version>
     </parent>
 
     <groupId>com.lovefn.grace</groupId>
     <artifactId>grace-starter-elasticsearch</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
     <name>grace-starter-elasticsearch</name>
     <packaging>jar</packaging>
 
