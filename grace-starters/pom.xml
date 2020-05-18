@@ -16,10 +16,11 @@
 
     <modules>
         <module>grace-starter-parent</module>
-        <module>grace-starter-tiny</module>
+        <module>grace-starter-servicetemplate</module>
         <module>grace-starter-jdbc</module>
         <module>grace-starter-elasticsearch</module>
         <module>grace-starter-redis</module>
+        <module>grace-starter-redis-cache</module>
         <module>grace-starter-redis-session</module>
         <module>grace-starter-task</module>
     </modules>
@@ -27,10 +28,10 @@
 
     <properties>
         <!-- spring -->
-        <spring-boot.version>2.1.7.RELEASE</spring-boot.version>
-        <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
-        <joda-time.version>2.9.9</joda-time.version>
-        <lombok.version>1.16.18</lombok.version>
+        <spring-boot.version>2.2.2.RELEASE</spring-boot.version>
+        <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
+        <joda-time.version>2.10.5</joda-time.version>
+        <lombok.version>1.18.10</lombok.version>
         <gson.vserion>2.8.0</gson.vserion>
         <jedis.version>2.9.0</jedis.version>
         <spring-data-redis.version>2.0.9.RELEASE</spring-data-redis.version>

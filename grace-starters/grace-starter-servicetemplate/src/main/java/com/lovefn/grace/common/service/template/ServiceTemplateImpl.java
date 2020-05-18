@@ -1,10 +1,9 @@
 package com.lovefn.grace.common.service.template;
 
-import com.lovefn.grace.common.service.callback.AbstractServiceCallback;
-import com.lovefn.grace.common.service.exception.ServiceFailException;
-import com.lovefn.grace.common.service.entity.Response;
-import com.lovefn.grace.common.service.entity.ResponseBuilder;
+import com.lovefn.grace.common.service.callback.ServiceCallback;
 import com.lovefn.grace.common.service.entity.BaseResult;
+import com.lovefn.grace.common.service.entity.Response;
+import com.lovefn.grace.common.service.exception.ServiceFailException;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -14,11 +13,11 @@ import lombok.extern.slf4j.Slf4j;
 public class ServiceTemplateImpl implements ServiceTemplate {
 
     @Override
-    public Response execute(final AbstractServiceCallback action) {
+    public Response execute(final ServiceCallback action) {
         try {
-            action.executeCheck();
+            action.lock();  //加锁
             BaseResult result = action.executeService();
-            return ResponseBuilder.createSuccessRes(result);
+            return action.initSuccessResult(result);
         } catch (ServiceFailException e) {
             log.warn("业务失败：{}", e.toString(), e);
             return action.initFailResult(e);
@@ -26,6 +25,8 @@ public class ServiceTemplateImpl implements ServiceTemplate {
         } catch (Exception e) {
             log.error("系统异常：{}", e.getMessage(), e);
             return action.initErrorResult(e);
+        } finally {
+            action.unlock(); //解锁
         }
     }
 

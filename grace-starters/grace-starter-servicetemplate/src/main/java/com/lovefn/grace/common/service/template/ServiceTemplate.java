@@ -1,6 +1,6 @@
 package com.lovefn.grace.common.service.template;
 
-import com.lovefn.grace.common.service.callback.AbstractServiceCallback;
+import com.lovefn.grace.common.service.callback.ServiceCallback;
 import com.lovefn.grace.common.service.entity.Response;
 
 /**
@@ -15,6 +15,6 @@ public interface ServiceTemplate {
      * @param action
      * @return Response
      */
-    Response execute(AbstractServiceCallback action);
+    Response execute(ServiceCallback action);
 
 }

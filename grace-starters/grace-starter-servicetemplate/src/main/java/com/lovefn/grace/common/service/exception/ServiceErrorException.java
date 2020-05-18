@@ -5,7 +5,7 @@ import com.lovefn.grace.common.service.entity.ResultCode;
 /**
  * 业务异常
  */
-public class ServiceFailException extends RuntimeException {
+public class ServiceErrorException extends RuntimeException {
 
     private ResultCode resultCode;
     private String errorMsg;
@@ -16,7 +16,7 @@ public class ServiceFailException extends RuntimeException {
      * @param resultCode
      * @param errorMsg
      */
-    public ServiceFailException(ResultCode resultCode, String errorMsg) {
+    public ServiceErrorException(ResultCode resultCode, String errorMsg) {
         super(errorMsg);
         this.resultCode = resultCode;
         this.errorMsg = errorMsg;
