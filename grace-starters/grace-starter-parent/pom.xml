@@ -34,7 +34,7 @@
         </dependency>
         <dependency>
             <groupId>com.lovefn.grace</groupId>
-            <artifactId>grace-starter-tiny</artifactId>
+            <artifactId>grace-starter-servicetemplate</artifactId>
         </dependency>
         <dependency>
             <groupId>joda-time</groupId>

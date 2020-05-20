@@ -93,7 +93,7 @@
             </dependency>
             <dependency>
                 <groupId>com.lovefn.grace</groupId>
-                <artifactId>grace-starter-tiny</artifactId>
+                <artifactId>grace-starter-servicetemplate</artifactId>
                 <version>${grace.version}</version>
             </dependency>
 

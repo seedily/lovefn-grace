@@ -11,7 +11,7 @@
     <groupId>com.lovefn.grace</groupId>
     <artifactId>grace-starter-servicetemplate</artifactId>
     <version>0.0.2-SNAPSHOT</version>
-    <name>grace-starter-tiny</name>
+    <name>grace-starter-servicetemplate</name>
     <packaging>jar</packaging>
 
     <dependencies>
