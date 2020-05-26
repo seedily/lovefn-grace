@@ -16,7 +16,8 @@
 
     <modules>
         <module>grace-starter-parent</module>
-        <module>grace-starter-servicetemplate</module>
+        <module>grace-starter-config</module>
+        <module>grace-starter-codetemplate</module>
         <module>grace-starter-jdbc</module>
         <module>grace-starter-elasticsearch</module>
         <module>grace-starter-redis</module>
@@ -93,7 +94,7 @@
             </dependency>
             <dependency>
                 <groupId>com.lovefn.grace</groupId>
-                <artifactId>grace-starter-servicetemplate</artifactId>
+                <artifactId>grace-starter-codetemplate</artifactId>
                 <version>${grace.version}</version>
             </dependency>
 

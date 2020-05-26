@@ -9,9 +9,9 @@
     </parent>
 
     <groupId>com.lovefn.grace</groupId>
-    <artifactId>grace-starter-servicetemplate</artifactId>
+    <artifactId>grace-starter-codetemplate</artifactId>
     <version>0.0.2-SNAPSHOT</version>
-    <name>grace-starter-servicetemplate</name>
+    <name>grace-starter-codetemplate</name>
     <packaging>jar</packaging>
 
     <dependencies>

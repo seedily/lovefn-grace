@@ -15,6 +15,7 @@ public interface ServiceTemplate {
      * @param action
      * @return Response
      */
+    @SuppressWarnings("unchecked")
     Response execute(ServiceCallback action);
 
 }

@@ -29,6 +29,7 @@ public interface ServiceCallback<T extends BaseResult> {
      *
      * @throws ServiceFailException
      */
+    @SuppressWarnings("unchecked")
     T executeService() throws ServiceFailException;
 
 

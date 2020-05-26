@@ -1,9 +1,12 @@
 package com.lovefn.grace.common.service.entity;
 
+import lombok.EqualsAndHashCode;
+
 /**
  * 结果码
  */
 @SuppressWarnings({"JavadocVariable"}) // for checkstyle#JavadocVariable
+@EqualsAndHashCode(callSuper=false)
 public class ResultCode {
 
     public static final ResultCode SUCCESS = new ResultCode("000000", "成功");
