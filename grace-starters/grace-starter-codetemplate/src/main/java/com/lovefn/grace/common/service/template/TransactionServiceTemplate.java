@@ -1,20 +1,50 @@
 package com.lovefn.grace.common.service.template;
 
 import com.lovefn.grace.common.service.callback.ServiceCallback;
+import com.lovefn.grace.common.service.entity.IBaseResultVo;
 import com.lovefn.grace.common.service.entity.Response;
+import com.lovefn.grace.common.service.exception.ServiceFailException;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.support.TransactionCallback;
+import org.springframework.transaction.support.TransactionTemplate;
 
 /**
- * 代理模式：代理对象（注入ServiceCallback并调用其check&execute）
  * Created by Moffee on 2018/7/11.
  */
-public interface TransactionServiceTemplate {
+@Slf4j
+public class TransactionServiceTemplate {
 
-    /**
-     * 代理执行（带事务）
-     *
-     * @param action
-     * @return Response
-     */
-    Response executeWithTransaction(ServiceCallback action);
+    private static TransactionTemplate transactionTemplate;
 
+    @SuppressWarnings("unchecked")
+    public static Response executeWithTransaction(final ServiceCallback action) {
+        Response response = (Response) transactionTemplate.execute(new TransactionCallback() {
+            /**
+             * @see TransactionCallback#doInTransaction(TransactionStatus)
+             */
+            public Object doInTransaction(TransactionStatus status) {
+                try {
+                    action.lock();  //加锁
+                    IBaseResultVo result = action.executeService();
+                    return action.initSuccessResult(result);
+                } catch (ServiceFailException e) {
+                    log.warn("业务失败：{}", e.toString(), e);
+                    status.setRollbackOnly();  //事务回滚
+                    return action.initFailResult(e);
+                } catch (Exception e) {
+                    log.error("系统异常：{}", e.getMessage(), e);
+                    status.setRollbackOnly();  //事务回滚
+                    return action.initErrorResult(e);
+                } finally {
+                    action.unlock(); //解锁
+                }
+            }
+        });
+        return response;
+    }
+
+    public static void setTransactionTemplate(TransactionTemplate transactionTemplate) {
+        TransactionServiceTemplate.transactionTemplate = transactionTemplate;
+    }
 }

@@ -1,6 +1,6 @@
 package com.lovefn.grace.common.service.callback;
 
-import com.lovefn.grace.common.service.entity.BaseResult;
+import com.lovefn.grace.common.service.entity.IBaseResultVo;
 import com.lovefn.grace.common.service.entity.Response;
 import com.lovefn.grace.common.service.entity.ResponseBuilder;
 import com.lovefn.grace.common.service.exception.ServiceFailException;
@@ -10,7 +10,7 @@ import com.lovefn.grace.common.service.exception.ServiceFailException;
  *
  * @param <T>
  */
-public interface ServiceCallback<T extends BaseResult> {
+public interface ServiceCallback<T extends IBaseResultVo> {
 
     /**
      * 在executeService前加锁（需要Override）
@@ -36,8 +36,8 @@ public interface ServiceCallback<T extends BaseResult> {
     /**
      * 针对执行失败的情况
      */
-    default Response initSuccessResult(BaseResult baseResult) {
-        return ResponseBuilder.createSuccessRes(baseResult);
+    default Response initSuccessResult(IBaseResultVo IBaseResultVo) {
+        return ResponseBuilder.createSuccessRes(IBaseResultVo);
     }
 
     /**

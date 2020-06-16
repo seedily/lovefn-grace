@@ -1,9 +1,6 @@
 package com.lovefn.grace.common.service.autoconfigure;
 
-import com.lovefn.grace.common.service.template.ServiceTemplate;
-import com.lovefn.grace.common.service.template.ServiceTemplateImpl;
 import com.lovefn.grace.common.service.template.TransactionServiceTemplate;
-import com.lovefn.grace.common.service.template.TransactionServiceTemplateImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
@@ -30,11 +27,8 @@ public class TransactionServiceTemplateAutoConfigure {
      */
     @Bean
     @ConditionalOnBean({DataSource.class, TransactionTemplate.class})
-    @ConditionalOnMissingBean
-    public TransactionServiceTemplate serviceTemplate(TransactionTemplate transactionTemplate) {
+    public void serviceTemplate(TransactionTemplate transactionTemplate) {
         log.info("Initializing TransactionServiceTemplate");
-        TransactionServiceTemplateImpl serviceTemplate = new TransactionServiceTemplateImpl();
-        serviceTemplate.setTransactionTemplate(transactionTemplate);
-        return serviceTemplate;
+        TransactionServiceTemplate.setTransactionTemplate(transactionTemplate);
     }
 }
