@@ -1,2 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.lovefn.grace.common.service.autoconfigure.TransactionServiceTemplateAutoConfigure

@@ -31,7 +31,7 @@
         </dependency>
         <dependency>
             <groupId>com.lovefn.grace</groupId>
-            <artifactId>grace-starter-codetemplate</artifactId>
+            <artifactId>grace-starter-commoncode</artifactId>
         </dependency>
         <dependency>
             <groupId>joda-time</groupId>

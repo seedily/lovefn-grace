@@ -17,7 +17,8 @@
     <modules>
         <module>grace-starter-parent</module>
         <module>grace-starter-config</module>
-        <module>grace-starter-codetemplate</module>
+        <module>grace-starter-commonapi</module>
+        <module>grace-starter-commoncode</module>
         <module>grace-starter-jdbc</module>
         <module>grace-starter-elasticsearch</module>
         <module>grace-starter-redis</module>
@@ -74,6 +75,11 @@
             </dependency>
             <dependency>
                 <groupId>com.lovefn.grace</groupId>
+                <artifactId>grace-starter-commonapi</artifactId>
+                <version>${grace.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.lovefn.grace</groupId>
                 <artifactId>grace-starter-parent</artifactId>
                 <version>${grace.version}</version>
             </dependency>
@@ -94,7 +100,7 @@
             </dependency>
             <dependency>
                 <groupId>com.lovefn.grace</groupId>
-                <artifactId>grace-starter-codetemplate</artifactId>
+                <artifactId>grace-starter-commoncode</artifactId>
                 <version>${grace.version}</version>
             </dependency>
 
