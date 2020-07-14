@@ -17,28 +17,48 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.lovefn.grace</groupId>
-            <artifactId>grace-starter-commoncode</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>joda-time</groupId>
-            <artifactId>joda-time</artifactId>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
+    <!-- ********************* 以下是编译打包相关 ************************************************* -->
+
+    <build>
+        <resources>
+            <resource>
+                <directory>${basedir}/src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/application*.yml</include>
+                    <include>**/application*.yaml</include>
+                    <include>**/application*.properties</include>
+                    <include>**/bootstrap.yml</include>
+                    <include>**/bootstrap.yaml</include>
+                    <include>**/bootstrap.properties</include>
+                </includes>
+            </resource>
+        </resources>
+
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot.version}</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>repackage</goal>
+                                <goal>build-info</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 
     <profiles>
         <profile>
@@ -55,9 +75,9 @@
                         <version>3.8.0</version>
                         <configuration>
                             <!-- 一般而言，target与source是保持一致的，但是，有时候为了让程序能在其他版本的jdk中运行(对于低版本目标jdk，源代码中不能使用低版本jdk中不支持的语法)，会存在target不同于source的情况 -->
-                            <source>1.8</source> <!-- 源代码使用的JDK版本 -->
-                            <target>1.8</target> <!-- 需要生成的目标class文件的编译版本 -->
-                            <encoding>UTF-8</encoding><!-- 字符集编码 -->
+                            <source>${java.version}</source> <!-- 源代码使用的JDK版本 -->
+                            <target>${java.version}</target> <!-- 需要生成的目标class文件的编译版本 -->
+                            <encoding>${project.build.sourceEncoding}</encoding><!-- 字符集编码 -->
                             <!--<skipTests>true</skipTests> <! - - 跳过测试 -->
                             <verbose>true</verbose>
                             <showWarnings>true</showWarnings>
@@ -72,7 +92,24 @@
 
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>3.0.1</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                                <id>attach-sources</id>
+                                <phase>verify</phase>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <plugin>
+                        <!-- http://maven.apache.org/plugins/maven-checkstyle-plugin/examples/upgrading-checkstyle.html-->
+                        <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-checkstyle-plugin</artifactId>
+                        <version>3.1.1</version>
                         <executions>
                             <execution>
                                 <id>validate</id>
