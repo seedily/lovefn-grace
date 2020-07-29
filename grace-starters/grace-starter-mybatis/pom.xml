@@ -9,27 +9,26 @@
     </parent>
 
     <groupId>com.lovefn.grace</groupId>
-    <artifactId>grace-starter-commonapi</artifactId>
+    <artifactId>grace-starter-mybatis</artifactId>
     <version>0.0.2-SNAPSHOT</version>
-    <name>grace-starter-commonapi</name>
+    <name>grace-starter-mybatis</name>
     <packaging>jar</packaging>
 
     <dependencies>
+        <!-- MyBatis 生成器 -->
         <dependency>
-            <groupId>io.swagger</groupId>
-            <artifactId>swagger-annotations</artifactId>
-            <optional>true</optional>
+            <groupId>org.mybatis.generator</groupId>
+            <artifactId>mybatis-generator-core</artifactId>
         </dependency>
+        <!-- MyBatis-->
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <scope>compile</scope>
-            <optional>true</optional>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
         </dependency>
+        <!--Mysql数据库驱动-->
         <dependency>
-            <groupId>org.hibernate.validator</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <scope>provided</scope>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
         </dependency>
     </dependencies>
 

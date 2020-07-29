@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.lovefn.grace.springcloud.autoconfigure.SpringCloudEurekaConfiguration,\
+com.lovefn.grace.springcloud.autoconfigure.FeignOkHttpConfiguration
+

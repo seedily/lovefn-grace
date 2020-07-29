@@ -9,28 +9,40 @@
     </parent>
 
     <groupId>com.lovefn.grace</groupId>
-    <artifactId>grace-starter-commonapi</artifactId>
+    <artifactId>grace-starter-tiny</artifactId>
     <version>0.0.2-SNAPSHOT</version>
-    <name>grace-starter-commonapi</name>
+    <name>grace-starter-tiny</name>
     <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
-            <groupId>io.swagger</groupId>
-            <artifactId>swagger-annotations</artifactId>
-            <optional>true</optional>
+            <groupId>com.lovefn.grace</groupId>
+            <artifactId>grace-starter-commonapi</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <scope>compile</scope>
-            <optional>true</optional>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.hibernate.validator</groupId>
             <artifactId>hibernate-validator</artifactId>
-            <scope>provided</scope>
         </dependency>
+
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>

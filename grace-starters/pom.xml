@@ -18,27 +18,42 @@
         <module>grace-starter-parent</module>
         <module>grace-starter-config</module>
         <module>grace-starter-commonapi</module>
-        <module>grace-starter-commoncode</module>
-        <module>grace-starter-jdbc</module>
-        <module>grace-starter-elasticsearch</module>
-        <module>grace-starter-redis</module>
-        <module>grace-starter-redis-cache</module>
-        <module>grace-starter-redis-session</module>
-        <module>grace-starter-task</module>
+        <module>grace-starter-tiny</module>
+        <module>grace-starter-mybatis</module>
+        <module>grace-starter-spring-cloud</module>
+        <!-- <module>grace-starter-jdbc</module>-->
+        <!-- <module>grace-starter-elasticsearch</module>-->
+        <!-- <module>grace-starter-redis</module>-->
+        <!-- <module>grace-starter-redis-cache</module>-->
+        <!-- <module>grace-starter-redis-session</module>-->
+        <!-- <module>grace-starter-task</module>-->
     </modules>
+
 
 
     <properties>
         <!-- spring -->
-        <spring-boot.version>2.2.2.RELEASE</spring-boot.version>
-        <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
+        <spring-boot.version>2.3.1.RELEASE</spring-boot.version>
+        <spring-cloud.version>Hoxton.SR6</spring-cloud.version>
+
+        <eureka-client.version>2.2.3.RELEASE</eureka-client.version>
+        <openfeign.version>2.2.3.RELEASE</openfeign.version>
+        <ribbon.version>2.2.3.RELEASE</ribbon.version>
+
         <joda-time.version>2.10.5</joda-time.version>
         <lombok.version>1.18.10</lombok.version>
+        <swagger.version>2.9.2</swagger.version>
+        <swagger.annotations>1.5.20</swagger.annotations>
         <gson.vserion>2.8.0</gson.vserion>
         <jedis.version>2.9.0</jedis.version>
         <spring-data-redis.version>2.0.9.RELEASE</spring-data-redis.version>
         <spring-session.version>2.0.5.RELEASE</spring-session.version>
 
+        <!-- javax.validation -->
+        <javax.validation.version>1.1.0.Final</javax.validation.version>
+        <hibernate-validator.version>6.1.5.Final</hibernate-validator.version>
+        <!-- prometheus -->
+        <micrometer.version>1.4.2</micrometer.version>
         <!-- elastic-job -->
         <elastic-job.version>2.1.5</elastic-job.version>
         <!-- elasticsearch -->
@@ -46,10 +61,12 @@
         <!-- db libs -->
         <druid.version>1.1.9</druid.version>
         <druid-starter.version>1.1.9</druid-starter.version>
-        <mybatis.version>3.4.4</mybatis.version>
-        <mybatis-spring.version>1.3.1</mybatis-spring.version>
-        <mybatis-starter.version>1.3.0</mybatis-starter.version>
-        <mysql-connector.version>6.0.5</mysql-connector.version>
+
+        <!-- mybatis-->
+        <mybatis-generator.version>1.3.7</mybatis-generator.version>
+        <mybatis.version>3.4.6</mybatis.version>
+        <mysql-connector.version>8.0.16</mysql-connector.version>
+
         <!-- Log libs -->
         <slf4j.version>1.7.12</slf4j.version>
         <jcl.version>1.1</jcl.version>
@@ -100,10 +117,14 @@
             </dependency>
             <dependency>
                 <groupId>com.lovefn.grace</groupId>
-                <artifactId>grace-starter-commoncode</artifactId>
+                <artifactId>grace-starter-tiny</artifactId>
                 <version>${grace.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>com.lovefn.grace</groupId>
+                <artifactId>grace-starter-mybatis</artifactId>
+                <version>${grace.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -119,12 +140,67 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <!--  spring-cloud-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-openfeign</artifactId>
+                <version>${openfeign.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+                <version>${ribbon.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+                <version>${eureka-client.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-actuator</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${spring-boot.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.hibernate.validator</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>${hibernate-validator.version}</version>
+            </dependency>
+            <!--     <dependency>-->
+            <!--         <groupId>javax.validation</groupId>-->
+            <!--         <artifactId>validation-api</artifactId>-->
+            <!--         <version>${javax.validation.version}</version>-->
+            <!--     </dependency>-->
 
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
             </dependency>
+            <dependency>
+                <artifactId>springfox-swagger2</artifactId>
+                <groupId>io.springfox</groupId>
+                <version>${swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>${swagger.annotations}</version>
+            </dependency>
+
             <dependency>
                 <groupId>joda-time</groupId>
                 <artifactId>joda-time</artifactId>
@@ -135,6 +211,23 @@
                 <groupId>com.google.code.gson</groupId>
                 <artifactId>gson</artifactId>
                 <version>${gson.vserion}</version>
+            </dependency>        <!-- MyBatis 生成器 -->
+            <dependency>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-core</artifactId>
+                <version>${mybatis-generator.version}</version>
+            </dependency>
+            <!-- MyBatis-->
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+            <!--Mysql数据库驱动-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector.version}</version>
             </dependency>
 
             <dependency>
@@ -154,31 +247,6 @@
             </dependency>
 
             <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>druid</artifactId>
-                <version>${druid.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>druid-spring-boot-starter</artifactId>
-                <version>${druid-starter.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.mybatis.spring.boot</groupId>
-                <artifactId>mybatis-spring-boot-starter</artifactId>
-                <version>${mybatis-starter.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.mybatis</groupId>
-                <artifactId>mybatis-spring</artifactId>
-                <version>${mybatis-spring.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.mybatis</groupId>
-                <artifactId>mybatis</artifactId>
-                <version>${mybatis.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>com.dangdang</groupId>
                 <artifactId>elastic-job-common-core</artifactId>
                 <version>${elastic-job.version}</version>
@@ -193,7 +261,6 @@
                 <artifactId>elastic-job-lite-spring</artifactId>
                 <version>${elastic-job.version}</version>
             </dependency>
-
             <!-- elasticsearch -->
             <dependency>
                 <groupId>org.elasticsearch.client</groupId>
@@ -202,17 +269,5 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
-    <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-maven-plugin</artifactId>
-                    <version>${spring-boot.version}</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-    </build>
 
 </project>

@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.lovefn.grace.tiny.autoconfigure.application.BootApplicationConfiguration,\
+com.lovefn.grace.tiny.autoconfigure.metrics.MetricsAutoConfiguration,\
+com.lovefn.grace.tiny.autoconfigure.web.exceptionhandler.GlobalExceptionHandlerConfiguration

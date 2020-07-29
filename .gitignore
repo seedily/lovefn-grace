@@ -14,6 +14,10 @@ buildNumber.properties
 *.tar
 *.tar.gz
 
+# log file ignore
+log.home_IS_UNDEFINED/
+*.log
+
 ### STS ###
 .apt_generated
 .classpath
