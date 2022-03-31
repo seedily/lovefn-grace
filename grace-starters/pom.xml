@@ -33,7 +33,7 @@
 
     <properties>
         <!-- spring -->
-        <spring-boot.version>2.3.1.RELEASE</spring-boot.version>
+        <spring-boot.version>2.5.12</spring-boot.version>
         <spring-cloud.version>Hoxton.SR6</spring-cloud.version>
 
         <eureka-client.version>2.2.3.RELEASE</eureka-client.version>
