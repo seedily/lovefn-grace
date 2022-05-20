@@ -44,7 +44,7 @@
         <lombok.version>1.18.10</lombok.version>
         <swagger.version>2.9.2</swagger.version>
         <swagger.annotations>1.5.20</swagger.annotations>
-        <gson.vserion>2.8.0</gson.vserion>
+        <gson.vserion>2.8.9</gson.vserion>
         <jedis.version>2.9.0</jedis.version>
         <spring-data-redis.version>2.0.9.RELEASE</spring-data-redis.version>
         <spring-session.version>2.0.5.RELEASE</spring-session.version>
